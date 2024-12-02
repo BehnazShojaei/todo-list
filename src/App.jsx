@@ -12,13 +12,13 @@ function App() {
   const [todos, setTodos] = useState([
     {
       text: "Learn about React",
-      iscompleted: false,
+      isCompleted: false,
     }, {
       text: "Meet friend for lunch",
-      iscompleted: false,
+      isCompleted: false,
     }, {
       text: "Build really cool todo app",
-      iscompleted: false,
+      isCompleted: false,
     }
 
   ]);
@@ -30,7 +30,14 @@ function App() {
 
   const completeTodo = (index) => {
     const newTodos = [...todos];
-    newTodos[index].iscompleted = true;
+    newTodos[index].isCompleted = true;
+    setTodos(newTodos);
+  };
+
+  const removeTodo = (index) => {
+
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
     setTodos(newTodos);
   };
 
@@ -38,7 +45,7 @@ function App() {
     <div className='app'>
       <h1 className='todo-list'>My todo list</h1>
       {todos.map((todo, index) => (
-        <TodoItem todo={todo} key={index} index={index} completeTodo={completeTodo} />
+        <TodoItem todo={todo} key={index} index={index} completeTodo={completeTodo} removeTodo={removeTodo} />
 
       ))}
 
