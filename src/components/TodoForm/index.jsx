@@ -18,7 +18,7 @@ function TodoForm(props) {
       <input
         value={value} //bind the input to the value state
         type="text"
-        placeholder="Add Todo..."
+        placeholder="Add Todo..."s
         onChange={(event) => setValue(event.target.value)}
       // on change event fires when user types in input field.
       // it calls the inline arrow function. 
